@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Project Sol — Building Tomorrow's Future Today." />
+  <title>Project Sol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#top"><span class="brand-mark">☀</span><span>PROJECT SOL</span></a>
+    <button class="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#explore">Explore</a><a href="#mission">Mission</a><a href="#promise">Promise</a><a href="#community">Community</a><a class="nav-button" href="#start">Start Building</a>
+    </nav>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div class="sun-orb" aria-hidden="true"></div><div class="planet planet-one" aria-hidden="true"></div><div class="planet planet-two" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">☀ WELCOME, BUILDER.</p>
+        <h1>Building Tomorrow’s<br><span>Future Today</span></h1>
+        <p class="hero-lead">Ask anything. Build anything.</p>
+        <p class="hero-copy">The potential to create is already within you.<br>Let’s build it together.</p>
+        <form class="builder-search" id="builderSearch">
+          <label class="sr-only" for="ideaInput">What do you want to build today?</label><span class="search-icon">⌕</span>
+          <input id="ideaInput" name="idea" type="text" placeholder="What do you want to build today?" autocomplete="off" />
+          <button type="submit" aria-label="Start building">→</button>
+        </form>
+        <p class="microcopy">Explore ideas to get started.</p>
+        <div class="quick-ideas"><button data-idea="Build an AI assistant">🤖 AI assistant</button><button data-idea="Create a website">🌐 Website</button><button data-idea="Learn about rockets">🚀 Rockets</button><button data-idea="Make a game">🎮 Game</button><button data-idea="Start a business">💡 Business</button><button data-idea="Build electronics">⚡ Electronics</button></div>
+        <div id="builderResponse" class="builder-response" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+    <section class="section" id="explore">
+      <div class="section-heading"><p class="eyebrow purple">CAN’T DECIDE?</p><h2>We’ll help you explore.</h2></div>
+      <div class="topic-grid">
+        <article class="topic-card violet"><span>🧠</span><h3>AI & Automation</h3><p>Build intelligent tools and automate useful work.</p></article>
+        <article class="topic-card blue"><span>🌍</span><h3>Space & Science</h3><p>Explore the universe and solve real-world problems.</p></article>
+        <article class="topic-card orange"><span>⚡</span><h3>Electronics</h3><p>Design, build, and power the future.</p></article>
+        <article class="topic-card teal"><span>💻</span><h3>Programming</h3><p>Code your ideas and bring them to life.</p></article>
+        <article class="topic-card pink"><span>🎨</span><h3>Art & Design</h3><p>Create beautiful things and express your vision.</p></article>
+        <article class="topic-card indigo"><span>🎮</span><h3>Gaming</h3><p>Make games and interactive experiences.</p></article>
+        <article class="topic-card cobalt"><span>🎵</span><h3>Music</h3><p>Compose, produce, and share your sound.</p></article>
+        <article class="topic-card green"><span>🏗️</span><h3>Engineering</h3><p>Build machines, structures, and real solutions.</p></article>
+        <article class="topic-card amber"><span>🌱</span><h3>Entrepreneurship</h3><p>Start something meaningful and make an impact.</p></article>
+        <article class="topic-card rose"><span>🤝</span><h3>Community Projects</h3><p>Work together to improve communities and lives.</p></article>
+      </div>
+    </section>
+    <section class="beliefs section" id="mission">
+      <div class="section-heading"><p class="eyebrow purple">WHY PROJECT SOL?</p><h2>People and AI, building hand in hand.</h2></div>
+      <div class="belief-grid"><div><span>🫶</span><p>Everyone deserves the opportunity to learn.</p></div><div><span>📚</span><p>Knowledge grows when it is shared.</p></div><div><span>✨</span><p>Building together creates a better future.</p></div></div>
+    </section>
+    <section class="promise section" id="promise">
+      <div class="promise-icon">☀</div><div><p class="eyebrow warm">OUR PROMISE</p><h2>When you leave here,<br>you’re <span>building the future.</span></h2><p>You’ll leave with something you didn’t have before: a new skill, a new idea, a new project, or a new perspective.</p><p>We spark creative minds and turn curiosity into action.</p></div>
+    </section>
+    <section class="bigger-question section"><div class="question-mark">?</div><div><h2>We don’t just answer questions.<br><span>We inspire people to ask bigger ones.</span></h2><p class="big-question">What needs to be done to improve the human condition?</p><p>Every invention, breakthrough, movement, and act of kindness started with someone asking a better question.</p></div></section>
+    <section class="cta section" id="start"><div><h2>Create your free account today.</h2><p>Start building for a better tomorrow.</p></div><a class="primary-button" href="mailto:hello@joinprojectsol.org?subject=I%20want%20to%20start%20building">START BUILDING →</a></section>
+    <section class="community section" id="community"><div class="section-heading"><p class="eyebrow purple">COMMUNITY SPOTLIGHT</p><h2>Learning together. Growing together.</h2></div><div class="spotlight-grid"><article><div class="spotlight-art">🧑‍💻</div><h3>Build your first project</h3><p>Start small, learn fast, and share what works.</p></article><article><div class="spotlight-art">🚀</div><h3>Turn ideas into prototypes</h3><p>See your thinking become something real.</p></article><article><div class="spotlight-art">🤝</div><h3>Help the next person</h3><p>Teach what you learn and strengthen the community.</p></article></div></section>
+  </main>
+  <footer><p>☀ PROJECT SOL</p><p class="footer-tagline">THAT’S WHAT WE DO HERE.</p><p>© <span id="year"></span> Project Sol</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
