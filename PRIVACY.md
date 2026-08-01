@@ -1,5 +1,8 @@
 # Privacy Policy
 
-Project Sol respects your privacy. This V4 prototype stores demo account and project data only in your own browser using local storage. It does not send that information to a server.
+Project Sol respects your privacy.
 
-A production privacy policy will be required before collecting real user information.
+This V5 prototype stores Idea Garden entries only in the visitor's browser using local storage.
+Voice recognition is handled by the visitor's browser and device. Project Sol does not receive or store the audio in this prototype.
+
+A production privacy policy will be required before collecting real account information or shared community data.

@@ -1,5 +1,6 @@
 # Terms of Use
 
-Do not misuse, disrupt, unlawfully access, copy, reverse engineer, or commercially exploit Project Sol.
+Project Sol V5 is an interactive prototype.
 
-This V4 release is a prototype. Features may change, and data stored in the browser may be lost.
+Do not misuse, disrupt, unlawfully access, copy, reverse engineer, or commercially exploit Project Sol.
+Ideas stored in the current prototype may remain only on the user's device and can be lost.

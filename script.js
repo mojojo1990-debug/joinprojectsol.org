@@ -1,110 +1,86 @@
-const $=(s)=>document.querySelector(s);
-const $$=(s)=>[...document.querySelectorAll(s)];
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => [...document.querySelectorAll(s)];
 
-const defaultProjects=[
-  {name:"Neighborhood Food Share",desc:"A simple tool that helps neighbors offer extra food before it goes to waste.",cat:"Community",icon:"🤝"},
-  {name:"Study Buddy AI",desc:"A beginner-friendly assistant that turns hard topics into step-by-step lessons.",cat:"AI & Automation",icon:"🧠"},
-  {name:"Clean Water Sensor",desc:"A low-cost concept for tracking basic water-quality indicators.",cat:"Science",icon:"💧"}
+const defaultIdeas = [
+  {name:"A robot that helps clean beaches",desc:"A machine that finds and collects trash before it reaches the ocean.",who:"Everyone",icon:"🤖"},
+  {name:"A place for seniors to teach forgotten skills",desc:"A platform where older adults share trades, recipes, stories, and practical knowledge.",who:"Communities",icon:"🧓"},
+  {name:"A backpack that charges phones with sunlight",desc:"A student-friendly solar backpack for emergencies and everyday use.",who:"Students",icon:"🎒"},
+  {name:"A neighborhood food-sharing app",desc:"A simple way to offer extra food before it goes to waste.",who:"Families",icon:"🥕"},
+  {name:"A voice-first science helper",desc:"A tool for kids who learn by speaking, listening, and seeing.",who:"Kids",icon:"🎤"},
+  {name:"A safer walk-home network",desc:"A community system that helps people check in and reach home safely.",who:"Communities",icon:"🛡️"}
 ];
 
-function getUser(){return JSON.parse(localStorage.getItem("solUser")||"null")}
-function setUser(user){localStorage.setItem("solUser",JSON.stringify(user));renderUser()}
-function getProjects(){return JSON.parse(localStorage.getItem("solProjects")||JSON.stringify(defaultProjects))}
-function setProjects(p){localStorage.setItem("solProjects",JSON.stringify(p));renderProjects()}
+let chosenAudience = "";
 
-function renderUser(){
-  const user=getUser();
-  $("#profileBtn").classList.toggle("hidden",!user);
-  $("#loginBtn").classList.toggle("hidden",!!user);
-  $("#signupBtn").classList.toggle("hidden",!!user);
-  if(user) $("#profileBtn").textContent=(user.name||"B").trim().charAt(0).toUpperCase();
+function escapeHtml(value){
+  return String(value).replace(/[&<>"']/g, ch => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[ch]));
 }
-function renderProjects(){
-  $("#galleryGrid").innerHTML=getProjects().map(p=>`
-    <article class="project-card">
-      <div class="project-visual">${p.icon||"🚀"}</div>
-      <div class="project-body">
-        <span class="tag">${p.cat}</span>
-        <h3>${escapeHtml(p.name)}</h3>
-        <p>${escapeHtml(p.desc)}</p>
+
+function getIdeas(){
+  return JSON.parse(localStorage.getItem("solGarden") || JSON.stringify(defaultIdeas));
+}
+
+function setIdeas(ideas){
+  localStorage.setItem("solGarden", JSON.stringify(ideas));
+  renderGarden();
+}
+
+function renderGarden(){
+  $("#gardenGrid").innerHTML = getIdeas().map(item => `
+    <article class="seed-card">
+      <div class="seed-art">${item.icon || "🌱"}</div>
+      <div class="seed-body">
+        <p class="seed-meta">For: ${escapeHtml(item.who)}</p>
+        <h3>${escapeHtml(item.name)}</h3>
+        <p>${escapeHtml(item.desc)}</p>
       </div>
-    </article>`).join("");
+    </article>
+  `).join("");
 }
-function escapeHtml(v){return String(v).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
 
-function openAuth(mode){
-  $("#authTitle").textContent=mode==="login"?"Welcome back":"Create your account";
-  $("#authSubtitle").textContent=mode==="login"?"Continue building your future.":"Start building for a better tomorrow.";
-  $("#authDialog").showModal();
+function speak(text){
+  if(!("speechSynthesis" in window)) return;
+  speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.rate = .9;
+  utterance.pitch = 1.02;
+  utterance.lang = "en-US";
+  speechSynthesis.speak(utterance);
 }
-$("#loginBtn").onclick=()=>openAuth("login");
-$("#signupBtn").onclick=()=>openAuth("signup");
-$("#profileBtn").onclick=()=>{
-  const u=getUser();
-  alert(`Signed in as ${u.name}\n${u.email}\n\nPrototype account stored only on this device.`);
-};
-$("#authForm").addEventListener("submit",(e)=>{
-  const name=$("#authName").value.trim(), email=$("#authEmail").value.trim();
-  if(!name||!email){e.preventDefault();return}
-  setUser({name,email});
+
+$("#hearPromptBtn").addEventListener("click", () => {
+  speak($("#solPrompt").textContent);
 });
 
-$("#buildPlanBtn").onclick=()=>{
-  const idea=$("#ideaInput").value.trim();
-  const level=$("#experience").value;
-  if(!idea){$("#ideaInput").focus();return}
-  const clean=escapeHtml(idea);
-  const levelText={beginner:"beginner-friendly",intermediate:"practical",advanced:"advanced"}[level];
-  $("#planOutput").innerHTML=`
-    <h3>Your ${levelText} Project Sol roadmap</h3>
-    <p><strong>Project idea:</strong> ${clean}</p>
-    <div class="plan-grid">
-      <div class="plan-card"><strong>1. Define the purpose</strong><p>Write one sentence explaining who this helps and what problem it solves.</p></div>
-      <div class="plan-card"><strong>2. Build the smallest version</strong><p>Choose one useful feature you can finish before adding anything else.</p></div>
-      <div class="plan-card"><strong>3. Gather your tools</strong><p>List the skills, people, software, materials, and knowledge you already have.</p></div>
-      <div class="plan-card"><strong>4. Test and improve</strong><p>Show it to one real person, listen carefully, and improve one thing.</p></div>
-    </div>`;
-  $("#planOutput").classList.remove("hidden");
-  $("#planOutput").scrollIntoView({behavior:"smooth",block:"center"});
-};
-
-$("#newProjectBtn").onclick=()=>$("#projectDialog").showModal();
-$("#projectForm").addEventListener("submit",(e)=>{
-  const name=$("#projectName").value.trim(),desc=$("#projectDesc").value.trim(),cat=$("#projectCategory").value;
-  if(!name||!desc){e.preventDefault();return}
-  const icon={"AI & Automation":"🧠","Community":"🤝","Science":"🔬","Programming":"💻","Art & Design":"🎨","Entrepreneurship":"🌱"}[cat]||"🚀";
-  setProjects([{name,desc,cat,icon},...getProjects()]);
+$("#openBuilderBtn").addEventListener("click", () => {
+  $("#builder").scrollIntoView({behavior:"smooth"});
 });
 
-$("#year").textContent=new Date().getFullYear();
-renderUser();renderProjects();
+$("#heroTypeBtn").addEventListener("click", () => {
+  $("#builder").scrollIntoView({behavior:"smooth"});
+  setTimeout(() => $("#ideaInput").focus(), 500);
+});
 
+$("#heroVoiceBtn").addEventListener("click", () => {
+  $("#builder").scrollIntoView({behavior:"smooth"});
+  setTimeout(() => $("#voiceBtn").click(), 650);
+});
 
-// Voice Builder: uses the browser's built-in speech tools.
-// Speech recognition works best in Safari/Chrome when microphone permission is allowed.
-const voiceBtn = $("#voiceBtn");
-const hearPromptBtn = $("#hearPromptBtn");
-const listeningStatus = $("#listeningStatus");
+$$("[data-audience]").forEach(button => {
+  button.addEventListener("click", () => {
+    $$("[data-audience]").forEach(b => b.classList.remove("active"));
+    button.classList.add("active");
+    chosenAudience = button.dataset.audience;
+    $("#solPrompt").textContent = `Great. What would you like to build for ${chosenAudience.toLowerCase()}?`;
+    speak($("#solPrompt").textContent);
+  });
+});
+
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 let recognition = null;
 let listening = false;
-
-function speak(text){
-  if(!("speechSynthesis" in window)){
-    listeningStatus.textContent = "Your browser cannot read this aloud yet.";
-    return;
-  }
-  window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.rate = 0.88;
-  utterance.pitch = 1.05;
-  utterance.lang = "en-US";
-  window.speechSynthesis.speak(utterance);
-}
-
-hearPromptBtn?.addEventListener("click",()=>{
-  speak("What do you want to build today? Tap the microphone and tell me your idea.");
-});
 
 if(SpeechRecognition){
   recognition = new SpeechRecognition();
@@ -112,61 +88,109 @@ if(SpeechRecognition){
   recognition.interimResults = true;
   recognition.continuous = false;
 
-  recognition.onstart = ()=>{
+  recognition.onstart = () => {
     listening = true;
-    voiceBtn.classList.add("listening");
-    listeningStatus.textContent = "I’m listening… tell me what you want to build.";
-    speak("I'm listening.");
+    $("#voiceBtn").classList.add("listening");
+    $("#voiceStatus").textContent = "I’m listening. Tell me your idea.";
   };
 
-  recognition.onresult = (event)=>{
+  recognition.onresult = (event) => {
     let transcript = "";
-    for(let i=event.resultIndex;i<event.results.length;i++){
+    for(let i = event.resultIndex; i < event.results.length; i++){
       transcript += event.results[i][0].transcript;
     }
     $("#ideaInput").value = transcript.trim();
-    listeningStatus.textContent = event.results[event.results.length-1].isFinal
-      ? "I heard you! Tap “Build My Plan” when you’re ready."
+    $("#voiceStatus").textContent =
+      event.results[event.results.length - 1].isFinal
+      ? "I heard you. Choose who it helps, then build your roadmap."
       : "Keep talking…";
   };
 
-  recognition.onerror = (event)=>{
+  recognition.onerror = (event) => {
     const messages = {
-      "not-allowed":"Microphone permission is off. Allow microphone access, then try again.",
-      "no-speech":"I didn’t hear anything. Tap the microphone and try once more.",
-      "audio-capture":"I can’t find the microphone on this device.",
+      "not-allowed":"Microphone permission is off. Allow microphone access and try again.",
+      "no-speech":"I didn’t hear anything. Tap the microphone and try again.",
+      "audio-capture":"I can’t find a microphone on this device.",
       "network":"Voice recognition needs an internet connection."
     };
-    listeningStatus.textContent = messages[event.error] || "Voice didn’t work that time. You can try again or type your idea.";
+    $("#voiceStatus").textContent = messages[event.error] || "Voice did not work that time. You can try again or type.";
   };
 
-  recognition.onend = ()=>{
+  recognition.onend = () => {
     listening = false;
-    voiceBtn.classList.remove("listening");
+    $("#voiceBtn").classList.remove("listening");
   };
 
-  voiceBtn?.addEventListener("click",()=>{
+  $("#voiceBtn").addEventListener("click", () => {
     if(listening){
       recognition.stop();
       return;
     }
     try{
       recognition.start();
-    }catch(error){
-      listeningStatus.textContent = "Give it one second, then tap the microphone again.";
+    }catch{
+      $("#voiceStatus").textContent = "Wait one second, then tap the microphone again.";
     }
   });
 }else{
-  voiceBtn?.addEventListener("click",()=>{
-    listeningStatus.textContent = "Voice typing is not supported in this browser. Try Safari or Chrome, or use your keyboard microphone.";
+  $("#voiceBtn").addEventListener("click", () => {
+    $("#voiceStatus").textContent =
+      "Voice typing is not available in this browser. Try Safari or Chrome, or use your keyboard microphone.";
     $("#ideaInput").focus();
   });
 }
 
-$$("[data-kid-idea]").forEach(button=>{
-  button.addEventListener("click",()=>{
-    $("#ideaInput").value = button.dataset.kidIdea;
-    listeningStatus.textContent = "Great choice! Tap “Build My Plan” to begin.";
-    speak(button.dataset.kidIdea);
-  });
+$("#buildBtn").addEventListener("click", () => {
+  const idea = $("#ideaInput").value.trim();
+  const experience = $("#experience").value;
+
+  if(!idea){
+    $("#voiceStatus").textContent = "Tell me your idea first. You can type it or say it.";
+    $("#ideaInput").focus();
+    return;
+  }
+
+  const level = {
+    beginner:"simple, beginner-friendly",
+    intermediate:"practical",
+    advanced:"advanced"
+  }[experience];
+
+  const audience = chosenAudience || "the people you want to help";
+  $("#roadmap").innerHTML = `
+    <h3>Your ${level} Project Sol roadmap</h3>
+    <p><strong>Your idea:</strong> ${escapeHtml(idea)}</p>
+    <p><strong>Who it helps:</strong> ${escapeHtml(audience)}</p>
+    <div class="roadmap-grid">
+      <div class="step"><strong>1. Define the change</strong><p>Write one sentence describing how life becomes better if this idea works.</p></div>
+      <div class="step"><strong>2. Build the smallest useful version</strong><p>Choose one feature you can finish and show to one person.</p></div>
+      <div class="step"><strong>3. Learn only what you need next</strong><p>List the first skill, tool, or piece of knowledge required for that feature.</p></div>
+      <div class="step"><strong>4. Make a visual prototype</strong><p>Sketch it, model it, act it out, or create a clickable mockup.</p></div>
+      <div class="step"><strong>5. Test with a real person</strong><p>Ask what helped, what confused them, and what they would change.</p></div>
+      <div class="step"><strong>6. Help the next builder</strong><p>Share what you learned so someone else can start faster.</p></div>
+    </div>
+  `;
+  $("#roadmap").classList.remove("hidden");
+  $("#roadmap").scrollIntoView({behavior:"smooth", block:"center"});
 });
+
+$("#addIdeaBtn").addEventListener("click", () => {
+  $("#ideaDialog").showModal();
+});
+
+$("#ideaForm").addEventListener("submit", () => {
+  const name = $("#gardenName").value.trim();
+  const desc = $("#gardenDesc").value.trim();
+  const who = $("#gardenAudience").value;
+  if(!name || !desc) return;
+
+  const icons = {
+    "Kids":"🧒","Students":"🎓","Families":"👨‍👩‍👧",
+    "Communities":"🌍","Everyone":"🌎"
+  };
+
+  setIdeas([{name,desc,who,icon:icons[who] || "🌱"}, ...getIdeas()]);
+});
+
+$("#year").textContent = new Date().getFullYear();
+renderGarden();
