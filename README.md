@@ -1,18 +1,20 @@
-# Project Sol — Visual Match Version
+# Project Sol V2
 
-This version displays the original Project Sol design mockup directly, so the live site matches the visual you approved.
+This update adds:
 
-## Files to upload
+- Twinkling stars
+- Floating planets
+- Animated rocket
+- Scroll reveal animations
+- Glowing search box
+- Interactive starter roadmap
+- Hover effects and pulsing CTA
+- Mobile navigation
 
-- `index.html`
-- `styles.css`
-- `project-sol-design.png`
-- `CNAME`
+Upload these files to the root of the GitHub repository:
 
-Upload all four files to the root of the `main` branch.
-
-## Important
-
-This version prioritizes exact visual appearance. The sections are currently part of one design image, so the page does not yet have fully interactive cards, search, accounts, or AI.
-
-The next development phase is to rebuild each visual section as real responsive HTML, CSS, and JavaScript while preserving this exact look.
+- index.html
+- styles.css
+- script.js
+- CNAME
+- README.md
