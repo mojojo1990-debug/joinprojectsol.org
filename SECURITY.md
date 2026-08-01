@@ -1,7 +1,5 @@
 # Security Policy
 
-If you discover a security vulnerability in Project Sol, please report it privately.
+Never place passwords, API keys, payment credentials, personal records, or other secrets in this public repository.
 
-Do not publicly disclose vulnerabilities until they have been reviewed and resolved.
-
-Security contact: security@joinprojectsol.org
+Report security concerns privately to the Project Sol team.

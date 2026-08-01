@@ -1,156 +1,164 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="Project Sol — Building Tomorrow's Future Today." />
-  <title>Project Sol</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Project Sol — Build, learn, and create with AI.">
+  <title>Project Sol V4</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="stars" aria-hidden="true"></div>
-  <div class="shooting-star" aria-hidden="true"></div>
+  <div class="stars"></div>
 
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="Project Sol home">
-      <span class="brand-mark">☀</span>
-      <span>PROJECT SOL</span>
-    </a>
-    <button class="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="#explore">Explore</a>
-      <a href="#mission">Mission</a>
-      <a href="#promise">Promise</a>
+  <header class="topbar">
+    <a href="#home" class="logo"><span>☀</span> PROJECT SOL</a>
+    <nav>
+      <a href="#builder">AI Builder</a>
+      <a href="#gallery">Projects</a>
       <a href="#community">Community</a>
-      <a class="nav-button" href="#start">Start Building</a>
     </nav>
+    <div class="account-actions">
+      <button class="ghost" id="loginBtn">Log In</button>
+      <button class="gold" id="signupBtn">Sign Up</button>
+      <button class="avatar hidden" id="profileBtn" aria-label="Open profile">B</button>
+    </div>
   </header>
 
-  <main id="top">
+  <main id="home">
     <section class="hero">
-      <div class="sun-orb" aria-hidden="true"></div>
-      <div class="planet planet-one" aria-hidden="true"></div>
-      <div class="planet planet-two" aria-hidden="true"></div>
-      <div class="rocket" aria-hidden="true">🚀</div>
-
-      <div class="hero-content reveal">
-        <p class="eyebrow">☀ WELCOME, BUILDER.</p>
+      <div class="sun"></div>
+      <div class="planet"></div>
+      <div class="rocket">🚀</div>
+      <div class="hero-content">
+        <p class="kicker">WELCOME, BUILDER.</p>
         <h1>Building Tomorrow’s<br><span>Future Today</span></h1>
-        <p class="hero-lead">Ask anything. Build anything.</p>
-        <p class="hero-copy">The potential to create is already within you.<br>Let’s build it together.</p>
+        <p class="lead">Ask anything. Build anything.</p>
+        <p class="sub">Humans and AI, building hand in hand.</p>
+        <a class="hero-cta" href="#builder">Start Building →</a>
+      </div>
+    </section>
 
-        <form class="builder-search" id="builderSearch">
-          <label class="sr-only" for="ideaInput">What do you want to build today?</label>
-          <span class="search-icon">⌕</span>
-          <input id="ideaInput" name="idea" type="text" placeholder="What do you want to build today?" autocomplete="off" />
-          <button type="submit" aria-label="Start building">→</button>
-        </form>
-
-        <p class="microcopy">Explore ideas to get started.</p>
-        <div class="quick-ideas" aria-label="Quick project ideas">
-          <button data-idea="Build an AI assistant">🤖 AI assistant</button>
-          <button data-idea="Create a website">🌐 Website</button>
-          <button data-idea="Learn about rockets">🚀 Rockets</button>
-          <button data-idea="Make a game">🎮 Game</button>
-          <button data-idea="Start a business">💡 Business</button>
-          <button data-idea="Build electronics">⚡ Electronics</button>
+    <section class="panel" id="builder">
+      <div class="section-title">
+        <p>PROJECT SOL AI BUILDER</p>
+        <h2>What do you want to build today?</h2>
+      </div>
+      <div class="builder-shell">
+        <div class="voice-welcome">
+          <button class="voice-orb" id="voiceBtn" type="button" aria-label="Speak your project idea">
+            <span class="voice-icon">🎙️</span>
+            <span class="voice-label">TAP TO TALK</span>
+          </button>
+          <div class="voice-copy">
+            <h3>Don’t know how to spell it? Just say it.</h3>
+            <p>Tap the microphone and tell Project Sol what you want to build.</p>
+            <button class="listen-button" id="hearPromptBtn" type="button">🔊 Hear the question</button>
+          </div>
         </div>
 
-        <section id="builderResponse" class="builder-response" aria-live="polite"></section>
+        <div class="idea-input-wrap">
+          <textarea id="ideaInput" placeholder="Type here—or tap the big microphone and speak your idea."></textarea>
+          <div class="listening-status" id="listeningStatus" role="status" aria-live="polite">
+            Ready when you are.
+          </div>
+        </div>
+
+        <div class="kid-starters" aria-label="Kid-friendly starter ideas">
+          <p>Or tap an idea:</p>
+          <button type="button" data-kid-idea="I want to build a robot that helps clean my room">🤖 Helpful Robot</button>
+          <button type="button" data-kid-idea="I want to make a game about exploring space">🚀 Space Game</button>
+          <button type="button" data-kid-idea="I want to invent something that helps animals">🐾 Help Animals</button>
+          <button type="button" data-kid-idea="I want to make art that moves and talks">🎨 Talking Art</button>
+        </div>
+
+        <div class="builder-controls">
+          <select id="experience">
+            <option value="beginner">I’m just getting started</option>
+            <option value="intermediate">I know the basics</option>
+            <option value="advanced">I’m experienced</option>
+          </select>
+          <button class="gold" id="buildPlanBtn">Build My Plan ✨</button>
+        </div>
       </div>
+      <div class="plan hidden" id="planOutput"></div>
     </section>
 
-    <section class="section reveal" id="explore">
-      <div class="section-heading">
-        <p class="eyebrow purple">CAN’T DECIDE?</p>
-        <h2>We’ll help you explore.</h2>
+    <section class="panel" id="gallery">
+      <div class="section-title">
+        <p>PROJECT GALLERY</p>
+        <h2>See ideas become real.</h2>
       </div>
-      <div class="topic-grid">
-        <article class="topic-card violet"><span>🧠</span><h3>AI & Automation</h3><p>Build intelligent tools and automate useful work.</p></article>
-        <article class="topic-card blue"><span>🌍</span><h3>Space & Science</h3><p>Explore the universe and solve real-world problems.</p></article>
-        <article class="topic-card orange"><span>⚡</span><h3>Electronics</h3><p>Design, build, and power the future.</p></article>
-        <article class="topic-card teal"><span>💻</span><h3>Programming</h3><p>Code your ideas and bring them to life.</p></article>
-        <article class="topic-card pink"><span>🎨</span><h3>Art & Design</h3><p>Create beautiful things and express your vision.</p></article>
-        <article class="topic-card indigo"><span>🎮</span><h3>Gaming</h3><p>Make games and interactive experiences.</p></article>
-        <article class="topic-card cobalt"><span>🎵</span><h3>Music</h3><p>Compose, produce, and share your sound.</p></article>
-        <article class="topic-card green"><span>🏗️</span><h3>Engineering</h3><p>Build machines, structures, and real solutions.</p></article>
-        <article class="topic-card amber"><span>🌱</span><h3>Entrepreneurship</h3><p>Start something meaningful and make an impact.</p></article>
-        <article class="topic-card rose"><span>🤝</span><h3>Community Projects</h3><p>Work together to improve communities and lives.</p></article>
-      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+      <button class="outline center" id="newProjectBtn">+ Add My Project</button>
     </section>
 
-    <section class="beliefs section reveal" id="mission">
-      <div class="section-heading">
-        <p class="eyebrow purple">WHY PROJECT SOL?</p>
-        <h2>People and AI, building hand in hand.</h2>
-      </div>
-      <div class="belief-grid">
-        <div><span>🫶</span><p>Everyone deserves the opportunity to learn.</p></div>
-        <div><span>📚</span><p>Knowledge grows when it is shared.</p></div>
-        <div><span>✨</span><p>Building together creates a better future.</p></div>
-      </div>
-    </section>
-
-    <section class="promise section reveal" id="promise">
-      <div class="promise-icon">☀</div>
+    <section class="panel mission" id="community">
+      <div class="question">?</div>
       <div>
-        <p class="eyebrow warm">OUR PROMISE</p>
-        <h2>When you leave here,<br>you’re <span>building the future.</span></h2>
-        <p>You’ll leave with something you didn’t have before: a new skill, a new idea, a new project, or a new perspective.</p>
-        <p>We spark creative minds and turn curiosity into action.</p>
-      </div>
-    </section>
-
-    <section class="bigger-question section reveal">
-      <div class="question-mark">?</div>
-      <div>
+        <p class="kicker">OUR MISSION</p>
         <h2>We don’t just answer questions.<br><span>We inspire people to ask bigger ones.</span></h2>
-        <p class="big-question">What needs to be done to improve the human condition?</p>
-        <p>Every invention, breakthrough, movement, and act of kindness started with someone asking a better question.</p>
+        <p class="mission-q">What needs to be done to improve the human condition?</p>
+        <p>Learn together. Build together. Share what works. Help the next person.</p>
       </div>
     </section>
 
-    <section class="cta section reveal" id="start">
+    <section class="panel promise">
+      <div class="promise-sun">☀</div>
       <div>
-        <h2>Create your free account today.</h2>
-        <p>Start building for a better tomorrow.</p>
-      </div>
-      <a class="primary-button pulse" href="mailto:hello@joinprojectsol.org?subject=I%20want%20to%20start%20building">START BUILDING →</a>
-    </section>
-
-    <section class="community section reveal" id="community">
-      <div class="section-heading">
-        <p class="eyebrow purple">COMMUNITY SPOTLIGHT</p>
-        <h2>Learning together. Growing together.</h2>
-      </div>
-      <div class="spotlight-grid">
-        <article><div class="spotlight-art">🧑‍💻</div><h3>Build your first project</h3><p>Start small, learn fast, and share what works.</p></article>
-        <article><div class="spotlight-art">🚀</div><h3>Turn ideas into prototypes</h3><p>See your thinking become something real.</p></article>
-        <article><div class="spotlight-art">🤝</div><h3>Help the next person</h3><p>Teach what you learn and strengthen the community.</p></article>
+        <p class="kicker orange">OUR PROMISE</p>
+        <h2>When you leave here, you’re <span>building the future.</span></h2>
+        <p>You leave with a new skill, idea, project, perspective, or opportunity.</p>
       </div>
     </section>
   </main>
 
-  <footer class="legal-footer">
-    <p class="footer-brand">☀ PROJECT SOL</p>
-    <p class="footer-tagline">THAT’S WHAT WE DO HERE.</p>
+  <footer>
+    <h3>☀ PROJECT SOL</h3>
+    <p class="tagline">THAT’S WHAT WE DO HERE.</p>
     <p>© <span id="year"></span> Project Sol. All Rights Reserved.</p>
-    <p class="footer-legal">
-      Project Sol™, the Project Sol logo, website design, graphics, original content,
-      and software are proprietary. Unauthorized copying, redistribution, modification,
-      or commercial use without written permission is prohibited.
-    </p>
-    <p class="footer-built">Built by dreamers. Powered by curiosity.</p>
-    <nav class="footer-links" aria-label="Legal">
+    <p class="legal">Project Sol™, its design, branding, graphics, original content, and software are proprietary. Unauthorized copying or commercial use is prohibited.</p>
+    <div class="footer-links">
       <a href="PRIVACY.md">Privacy</a>
       <a href="TERMS.md">Terms</a>
       <a href="SECURITY.md">Security</a>
       <a href="LICENSE">License</a>
-    </nav>
+    </div>
   </footer>
+
+  <dialog id="authDialog">
+    <form method="dialog" class="modal-card" id="authForm">
+      <button class="modal-close" value="cancel" aria-label="Close">×</button>
+      <h2 id="authTitle">Create your account</h2>
+      <p id="authSubtitle">Start building for a better tomorrow.</p>
+      <label>Name<input id="authName" required></label>
+      <label>Email<input id="authEmail" type="email" required></label>
+      <button class="gold wide" id="authSubmit" value="default">Continue</button>
+      <p class="tiny">Prototype mode: account information stays only in this browser.</p>
+    </form>
+  </dialog>
+
+  <dialog id="projectDialog">
+    <form method="dialog" class="modal-card" id="projectForm">
+      <button class="modal-close" value="cancel" aria-label="Close">×</button>
+      <h2>Add your project</h2>
+      <label>Project name<input id="projectName" required></label>
+      <label>What does it do?<textarea id="projectDesc" required></textarea></label>
+      <label>Category
+        <select id="projectCategory">
+          <option>AI & Automation</option>
+          <option>Community</option>
+          <option>Science</option>
+          <option>Programming</option>
+          <option>Art & Design</option>
+          <option>Entrepreneurship</option>
+        </select>
+      </label>
+      <button class="gold wide" id="saveProjectBtn" value="default">Publish Project</button>
+    </form>
+  </dialog>
 
   <script src="script.js"></script>
 </body>

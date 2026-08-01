@@ -1,11 +1,5 @@
 # Terms of Use
 
-By using Project Sol, you agree not to misuse, copy, reverse engineer, disrupt,
-or unlawfully access the platform.
+Do not misuse, disrupt, unlawfully access, copy, reverse engineer, or commercially exploit Project Sol.
 
-Project Sol reserves all rights to its software, branding, content, graphics,
-and intellectual property.
-
-These terms may be updated as the platform grows.
-
-Last updated: 2026.
+This V4 release is a prototype. Features may change, and data stored in the browser may be lost.

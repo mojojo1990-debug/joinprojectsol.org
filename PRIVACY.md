@@ -1,10 +1,5 @@
 # Privacy Policy
 
-Project Sol respects your privacy.
+Project Sol respects your privacy. This V4 prototype stores demo account and project data only in your own browser using local storage. It does not send that information to a server.
 
-We do not sell personal information.
-
-As Project Sol grows, this policy will be expanded to explain what data is collected,
-why it is collected, how it is stored, and how users may exercise their privacy rights.
-
-Last updated: 2026.
+A production privacy policy will be required before collecting real user information.
