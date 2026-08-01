@@ -1,20 +1,12 @@
-# Project Sol V2
+# Project Sol V3 — Security and Legal Basics
 
-This update adds:
+This update includes:
 
-- Twinkling stars
-- Floating planets
-- Animated rocket
-- Scroll reveal animations
-- Glowing search box
-- Interactive starter roadmap
-- Hover effects and pulsing CTA
-- Mobile navigation
+- Copyright notice in the footer
+- Proprietary license
+- Security policy
+- Privacy policy
+- Terms of use
+- Legal links in the footer
 
-Upload these files to the root of the GitHub repository:
-
-- index.html
-- styles.css
-- script.js
-- CNAME
-- README.md
+Upload all files in this folder to the root of the `main` branch.
