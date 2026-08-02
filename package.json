@@ -1,0 +1,14 @@
+{
+  "name": "project-sol-live-ai",
+  "version": "0.2.0-alpha.2",
+  "private": true,
+  "type": "module",
+  "description": "Project SOL live AI website and secure Vercel backend.",
+  "scripts": {
+    "check": "python3 scripts/check_site.py && node --check assets/app.js && node --check api/chat.mjs && node --check service-worker.js",
+    "test": "npm run check && node --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

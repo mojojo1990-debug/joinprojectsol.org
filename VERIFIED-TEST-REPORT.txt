@@ -1,0 +1,73 @@
+PROJECT SOL 0.2.0-alpha.2 — VERIFIED TEST REPORT
+
+Verified in the build environment on 2026-08-02.
+
+PASSED
+- Static website structure and required-file checks
+- Frontend JavaScript syntax
+- Backend Vercel Function syntax
+- Service worker syntax
+- Empty-message API rejection
+- Unapproved-origin API rejection
+- Simulated OpenAI reply and response-ID handling
+- Moderated-content blocking before generation
+- ZIP integrity
+
+RESULT
+- Backend tests: 4 passed
+- Backend failures: 0
+
+REMAINING LIVE SETUP
+- Upload these files to the root of the GitHub repository.
+- Deploy the repository through Vercel.
+- Enter OPENAI_API_KEY privately in Vercel.
+- Attach joinprojectsol.org and complete a real live conversation test.
+
+SECURITY
+Never place the private OpenAI API key in GitHub, HTML, screenshots, messages, or public files.
+
+AUTOMATED TEST OUTPUT
+---------------------
+
+> project-sol-live-ai@0.2.0-alpha.2 test
+> npm run check && node --test tests/*.test.mjs
+
+
+> project-sol-live-ai@0.2.0-alpha.2 check
+> python3 scripts/check_site.py && node --check assets/app.js && node --check api/chat.mjs && node --check service-worker.js
+
+PASS: Project SOL static quality checks
+TAP version 13
+# Subtest: rejects empty messages
+ok 1 - rejects empty messages
+  ---
+  duration_ms: 17.457159
+  type: 'test'
+  ...
+# Subtest: rejects unapproved origins
+ok 2 - rejects unapproved origins
+  ---
+  duration_ms: 0.419623
+  type: 'test'
+  ...
+# Subtest: returns a live AI reply and response id
+ok 3 - returns a live AI reply and response id
+  ---
+  duration_ms: 1.316706
+  type: 'test'
+  ...
+# Subtest: blocks moderated content before generation
+ok 4 - blocks moderated content before generation
+  ---
+  duration_ms: 0.971273
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 60.741059
