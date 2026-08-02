@@ -1,0 +1,10 @@
+{
+  "name": "Project SOL",
+  "short_name": "Project SOL",
+  "description": "Humans and AI, hand in hand, building tomorrow's future today.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050711",
+  "theme_color": "#070914",
+  "icons": []
+}
