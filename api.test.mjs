@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import handler from '../api/chat.mjs';
+import handler from './chat.mjs';
 
 function request(body, origin = 'https://joinprojectsol.org') {
   return new Request('https://joinprojectsol.org/api/chat', {

@@ -2,7 +2,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 import json, sys
 
-root = Path(__file__).resolve().parents[1]
+root = Path(__file__).resolve().parent
 errors = []
 
 class Parser(HTMLParser):
