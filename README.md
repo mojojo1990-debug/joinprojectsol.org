@@ -1,6 +1,6 @@
 # joinprojectsol.org — Community Concept Preview
 
-**Human First. Community First.** joinprojectsol.org is a Dallas-first community vision focused on connecting neighbors, practical skills, local businesses, mentorship, and second chances. This is an early-stage concept preview, not a launched social network or an incorporated nonprofit.
+**Human First. Community Focused.** joinprojectsol.org is a Dallas-first community vision focused on connecting neighbors, practical skills, local businesses, mentorship, and second chances. This is an early-stage concept preview, not a launched social network or an incorporated nonprofit.
 
 ## What the current website does
 
