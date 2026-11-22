@@ -1,24 +1,15 @@
 # Changelog
 
-## 0.2.0-alpha.2
+## 0.3.0-preview.1 — Retire AI chat and focus on the community
 
-- Added `LAUNCH.html` with a Vercel one-click deployment flow.
-- Requires the private `OPENAI_API_KEY` during deployment.
-- Pre-fills the non-sensitive `OPENAI_MODEL` value.
-- Updated release metadata and setup documentation.
+- Removed the live AI chat backend and its mocked API tests.
+- Removed the obsolete browser chat client, Vercel one-click AI launcher, and chat deployment configuration.
+- Kept the working bilingual website, community concept map, and device-local First-Step Studio.
+- Removed active AI-service references from the user-facing planning template and documentation.
+- Added regression checks guarding against accidental reintroduction of chatbot code.
+- Updated product documentation for a static GitHub Pages community concept preview.
+- Rotated the service-worker cache name for a clean asset refresh.
 
+## Previous releases (historical)
 
-## 0.2.0-alpha.1 — Live AI foundation
-
-- Replaced the local scripted planner with a real `/api/chat` AI backend.
-- Added Project SOL-specific SOL instructions.
-- Added multi-turn context for the current page session.
-- Added moderation, rate limiting, validation, origin checks, timeout handling, and bot honeypot.
-- Added optional spoken replies and improved microphone flow.
-- Added automated backend tests with a mocked OpenAI service.
-- Added Vercel configuration and environment-variable documentation.
-- Prevented service-worker caching of API requests.
-
-## 0.1.0-rc.1
-
-- Static release candidate and guided local planning experience.
+The project previously explored and tested a live AI-chat prototype in the 0.2.0-alpha series, and an earlier static guided-planner release (0.1.0-rc.1). Those experimental chat components are **retired** and are no longer part of the current site.

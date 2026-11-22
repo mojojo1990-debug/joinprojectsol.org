@@ -1,4 +1,4 @@
-const CACHE_NAME = 'joinprojectsol-homepage-v3';
+const CACHE_NAME = 'joinprojectsol-community-preview-v4';
 const APP_SHELL = [
   './', './index.html', './offline.html', './404.html',
   './styles.css', './app.js', './manifest.webmanifest',

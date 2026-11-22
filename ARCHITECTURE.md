@@ -1,25 +1,22 @@
-# Architecture
+# joinprojectsol.org — Static Website Architecture
 
-## Current system
+## Current design
 
-Build 001 is a static progressive web application hosted by GitHub Pages.
+The website is a static, public concept preview on GitHub Pages. It has **no live chatbot or AI backend**.
 
-- `index.html` contains page structure and content.
-- `assets/styles.css` contains visual design and responsive behavior.
-- `assets/app.js` contains interaction, draft storage, voice input, and guided first-step logic.
-- `manifest.webmanifest` describes the installable web experience.
-- `service-worker.js` caches the public app shell.
+| File | Purpose |
+|---|---|
+| `index.html` | Public, bilingual concept-page structure |
+| `styles.css` | Responsive visual presentation |
+| `app.js` | EN/ES toggle, mobile navigation, network map, local First-Step Studio |
+| `manifest.webmanifest` | Installable app identity and icons |
+| `service-worker.js` | Cache of public static files and offline fallback |
+| `check_site.py`, `homepage.test.mjs`, `retired-chat.test.mjs` | Quality and regression checks |
 
-## Data and privacy
+## Data boundaries
 
-- Draft text is stored only in the visitor's browser through local storage.
-- Build 001 sends no conversation text to a server.
-- There are no user accounts or cloud records.
+The First-Step Studio uses a fixed template in the browser, without remote processing of submitted ideas. It does not need accounts, model APIs, payment credentials, or a server database. Visitors can explicitly copy or download their plan. The external LinkedIn link leaves this site; the host may maintain normal access logs.
 
-## Future live-AI architecture
+## Retirement boundary
 
-A production AI release should use:
-
-Browser → secure Project SOL server → AI provider
-
-The server must keep API credentials private, apply rate limits, validate requests, log errors safely, and protect users from abuse. The browser must never contain the private provider key.
+The earlier AI chat API, browser chat client, and AI-deployment launcher have been removed from the current branch. They remain retrievable from earlier Git history, not from the new site's live assets. Any separately deployed external services or previously created secrets require review in the relevant provider account.

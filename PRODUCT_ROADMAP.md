@@ -1,42 +1,25 @@
-# Product Roadmap
+# joinprojectsol.org — Community Roadmap
 
-## Build 001 — Foundation
+## Current — public concept preview
 
-- Professional public homepage
-- Clear mission and product identity
-- Guided conversation prototype
-- Voice and accessibility foundations
-- Repeatable release process
+- Clear, honest public vision and human-first identity
+- Responsive EN/ES pages
+- Neighborhood/network concept map
+- Local First-Step Studio planning exercise
+- Automated website tests and accessible navigation
 
-## Build 002 — Trust and measurement
+## Next — real-world discovery
 
-- App icons and improved install experience
-- Privacy-respecting analytics
-- Contact and volunteer interest form
-- Better error handling and browser testing
-- Automated quality checks
+- Talk with Dallas residents, local businesses, educators, mentors, and reentry partners
+- Document needs, barriers, and practical resources without collecting sensitive data unnecessarily
+- Pilot small, permission-based collaborations; test them with real people
+- Keep Our Block Digital's commercial service work distinct from the community vision
 
-## Build 003 — Secure live conversation
+## Later — trusted community infrastructure
 
-- Server-side AI gateway
-- Rate limits and abuse protection
-- Conversation safety controls
-- Streaming responses
-- Cost monitoring and system status
+- Local opportunities and volunteer-resource directory with verified listings
+- Community projects, workshops and helpful connections
+- Clear contact permissions, privacy rules, accessibility, reporting and moderation
+- Measurable outcomes and responsible long-term operations
 
-## Build 004 — Projects and accounts
-
-- User authentication
-- Saved conversations
-- Project workspaces
-- Progress milestones
-- Data export and account deletion
-
-## Build 005 — Community
-
-- Mentor and volunteer profiles
-- Community projects and events
-- Moderation and reporting
-- Youth-safety and guardian controls where required
-
-Each build must solve one clear problem and pass the release checklist before the next build begins.
+**Scope decision:** the website does not provide an AI chat service. A public social platform, formal nonprofit, and training center are future possibilities, not current operational claims. Expansion requires human review, legal/privacy planning, and evidence from pilots.

@@ -1,53 +1,36 @@
-# Project SOL 0.2.0-alpha.2 — Live AI + One-Click Launch
+# joinprojectsol.org — Community Concept Preview
 
-Project SOL is a mobile-first website with a real AI conversation experience. The public browser calls a private Vercel Function at `/api/chat`; only that server function can read the OpenAI API key.
+**Human First. Community First.** joinprojectsol.org is a Dallas-first community vision focused on connecting neighbors, practical skills, local businesses, mentorship, and second chances. This is an early-stage concept preview, not a launched social network or an incorporated nonprofit.
 
+## What the current website does
 
-## Easiest launch path
+- Explains the community vision and the separate Our Block Digital venture.
+- Offers responsive English and Spanish pages and navigation.
+- Presents an interactive map of the proposed community network.
+- Includes the **First-Step Studio**, a local, rule-based planning template. Visitors choose a goal, enter an idea, and receive three suggestions. They can copy or save their plan as text.
+- Uses a web manifest and service worker for an installable, offline-capable static website.
 
-1. Upload this project to the root of `mojojo1990-debug/joinprojectsol.org`.
-2. Open `LAUNCH.html` and tap **Deploy Project SOL**.
-3. Sign in to Vercel, paste `OPENAI_API_KEY`, and tap **Deploy**.
+**There is no AI chat service, chatbot backend, account system, or user-submitted idea upload.** The guided plan runs in the visitor's browser. Site hosting still involves ordinary web-server requests and possible host logs.
 
-The key is entered directly into Vercel and must never be committed to GitHub.
+## Local testing
 
-## What works
-
-- Real multi-turn AI conversation
-- SOL personality and Project SOL mission instructions
-- Typed and microphone input
-- Optional spoken replies
-- New-conversation control
-- Recent-context memory during the open page session
-- Input validation, moderation, timeouts, origin checks, honeypot, and basic rate limiting
-- Responsive, accessible, installable web app foundation
-- Automated static and backend tests
-
-## Security rule
-
-Never place `OPENAI_API_KEY` in HTML, JavaScript under `assets/`, GitHub files, screenshots, chat messages, or the iPhone Files app. Add it only in Vercel Project Settings → Environment Variables.
-
-## Deploy on Vercel
-
-1. Upload this project to the root of the GitHub repository `mojojo1990-debug/joinprojectsol.org`.
-2. Create or open a Vercel account and import that GitHub repository.
-3. In the Vercel project, open **Settings → Environment Variables**.
-4. Add `OPENAI_API_KEY` with the API key value for Production, Preview, and Development as desired.
-5. Add `OPENAI_MODEL` with `gpt-5-mini` (optional; this is the default).
-6. Deploy or redeploy after adding the variables.
-7. In Vercel Domains, add `joinprojectsol.org` and follow the DNS instructions.
-8. Test `/api/chat` through the website before announcing the launch.
-
-GitHub Pages alone cannot run the private `/api/chat` backend. The repository should be deployed through Vercel for the live assistant to work.
-
-## Local checks
+Requires Python 3 and Node.js 20 or newer; no package installation or credentials needed.
 
 ```bash
 npm test
 ```
 
-These tests do not call the real OpenAI API. They use a simulated response so no key or credits are required.
+The tests validate site structure, bilingual interactions, planning functionality, static asset references, and the absence of retired chat-service files.
 
-## Release status
+## Hosting
 
-Alpha: the live AI path is implemented and automated tests pass. A real end-to-end production call still requires the owner's OpenAI API key and Vercel deployment.
+This repository is published as a static site by **GitHub Pages**, from the root of the `main` branch, with custom domain `joinprojectsol.org`. See [DEPLOYMENT.md](DEPLOYMENT.md).
+
+## Safeguards
+
+- Never commit secrets, contact records, or private community information to this public repository.
+- Do not add a public submission form without explicit permission, a data-handling plan, and appropriate privacy protections.
+- Keep descriptions clear about which activities are proposed versus operating.
+- AI chat is intentionally retired; do not reintroduce the old API service as part of routine maintenance.
+
+© 2026 joinprojectsol.org.

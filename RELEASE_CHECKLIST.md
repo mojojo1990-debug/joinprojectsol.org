@@ -1,27 +1,24 @@
-# Release Checklist
+# joinprojectsol.org — Release Checklist
 
-## Before merging
+## Before merge
 
-- [ ] The homepage loads without visible errors
-- [ ] Navigation links work
-- [ ] Conversation form accepts text
-- [ ] Empty-form validation works
-- [ ] Copy and reset controls work
-- [ ] Mobile menu opens and closes
-- [ ] Layout works around 390 px width
-- [ ] Layout works on desktop
-- [ ] Keyboard focus is visible
-- [ ] Voice failure does not break typing
-- [ ] No private API keys or secrets are present
-- [ ] `VERSION` is correct
-- [ ] `CHANGELOG.md` is updated
-- [ ] Service-worker cache name is updated when assets change
+- [ ] `npm test` passes on the exact branch
+- [ ] English/Spanish toggle updates visible copy
+- [ ] First-Step Studio accepts an idea and generates three guided steps
+- [ ] Empty idea shows validation, and copy/download/reset work
+- [ ] Mobile menu and community network nodes work
+- [ ] Layout is readable around 390 px and on desktop
+- [ ] Keyboard navigation and focus states remain usable
+- [ ] No AI chatbot, server endpoint, or API key is introduced
+- [ ] No personal records or secrets are committed
+- [ ] Privacy, roadmap and product descriptions remain accurate
+- [ ] `VERSION` and `CHANGELOG.md` are updated
+- [ ] Service-worker cache is updated when assets change
 
-## After deployment
+## After merge
 
-- [ ] `https://joinprojectsol.org/` loads
-- [ ] HTTPS is active
-- [ ] Custom domain still points to the repository
-- [ ] CSS and JavaScript load correctly
-- [ ] A hard refresh shows the new release
-- [ ] Previous release ZIP is saved for rollback
+- [ ] GitHub Pages deployment succeeds
+- [ ] https://joinprojectsol.org/ works over HTTPS
+- [ ] CSS/JS load and the app's new version is visible
+- [ ] Mobile smoke test passes
+- [ ] Prior known-good commit is available for rollback
