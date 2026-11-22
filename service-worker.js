@@ -1,8 +1,8 @@
-const CACHE_NAME = 'project-sol-0.2.0-alpha.1';
+const CACHE_NAME = 'joinprojectsol-homepage-v3';
 const APP_SHELL = [
   './', './index.html', './offline.html', './404.html',
-  './assets/styles.css', './assets/app.js', './manifest.webmanifest',
-  './assets/icons/icon-192.png', './assets/icons/icon-512.png', './assets/icons/social-card.png'
+  './styles.css', './app.js', './manifest.webmanifest',
+  './icon-192.png', './icon-512.png', './favicon.svg', './social-card.png'
 ];
 
 self.addEventListener('install', event => {
