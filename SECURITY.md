@@ -1,6 +1,9 @@
-# Security Policy
+# Security — joinprojectsol.org
 
-Never place passwords, API keys, payment credentials, personal records, or other secrets in this public repository.
+This is a public static website on GitHub Pages. There is no AI chat API, user account system, or Project SOL database in this release.
 
-This V5 prototype does not provide secure production accounts or a shared database.
-Report security concerns privately to the Project Sol team.
+Do not publish API keys, passwords, payment details, sensitive personal records, or other secrets in this repository.
+
+Changes should be reviewed and tested before merging. If a future service collects data, security requirements and a separate privacy review are mandatory before release.
+
+For a suspected vulnerability, contact the site owner using a verified private communication channel; do not include secrets in public GitHub issues.

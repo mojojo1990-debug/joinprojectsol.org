@@ -3,7 +3,7 @@
   const $ = s => document.querySelector(s);
   const $$ = s => [...document.querySelectorAll(s)];
   const spanish = {
-    skip:'Ir al contenido', ann:'UNA IDEA NACIDA EN DALLAS. UN FUTURO IMPULSADO POR LA COMUNIDAD.', stage:'AVANCE PÚBLICO DEL CONCEPTO',
+    headerTagline:'LAS PERSONAS PRIMERO. ENFOQUE COMUNITARIO.', skip:'Ir al contenido', ann:'UNA IDEA NACIDA EN DALLAS. UN FUTURO IMPULSADO POR LA COMUNIDAD.', stage:'AVANCE PÚBLICO DEL CONCEPTO',
     navVision:'La visión', navPaths:'Nuestros caminos', navGarden:'La red', navStudio:'Empieza aquí', headerCta:'Encuentra tu primer paso',
     heroEyebrow:'EL PRÓXIMO CAPÍTULO COMIENZA CON NOSOTROS', heroLine1:'Un futuro', heroLine2:'mejor', heroLine3:'comienza aquí.',
     heroDesc:'Las grandes cosas no tienen que empezar en grande. Empiezan con vecinos, habilidades reales, segundas oportunidades y alguien dispuesto a ayudar. Imaginamos una nueva red comunitaria: nacida en Dallas, para todos los que quieren avanzar.',
@@ -21,9 +21,9 @@
     bento1:'Vecinos ayudando a vecinos.', bento1desc:'Facilitar el descubrimiento de personas, ideas y recursos locales que vale la pena compartir.', bento2:'Habilidades reales.<br>Futuros reales.', bento2desc:'Desde herramientas digitales hasta electrónica y robótica: aprender debe abrir puertas.', bento3:'Pequeños negocios. Gran impacto.', bento3desc:'Dar a emprendedores locales maneras prácticas de llegar a quienes los rodean.', bento4:'Las segundas oportunidades son fortaleza.', bento4desc:'Crear caminos donde el pasado de una persona no limite su futuro.',
     studioEyebrow:'04 / TU PRÓXIMO PASO', studioTitle:'Cada futuro empieza<br>con <em>un paso.</em>', studioDesc:'No necesitas una idea perfecta para empezar. Cuéntanos qué tienes en mente y recibe un primer paso sencillo y útil. Esta vista previa funciona en tu dispositivo, sin cuenta y sin enviar datos.', studioPrivacy:'PRIVADO POR DISEÑO · TU IDEA PERMANECE EN ESTE DISPOSITIVO', panelTitle:'EL ESTUDIO DEL PRIMER PASO',
     inputType:'¿QUÉ QUIERES LOGRAR?', optionBusiness:'Iniciar o hacer crecer un negocio', optionSkills:'Aprender una habilidad útil', optionCareer:'Avanzar en mi carrera', optionCommunity:'Ayudar a mi comunidad', optionBuild:'Crear algo nuevo', inputIdea:'CUÉNTANOS TU IDEA CON TUS PALABRAS', studioButton:'Crear mi primer paso',
-    resultKicker:'UN PUNTO DE PARTIDA PRÁCTICO', resultTitle:'Tus primeros pasos', copy:'Copiar plan', download:'Guardar como texto', startOver:'Empezar de nuevo', resultDisclaimer:'Esta es una plantilla de planificación guiada, no asesoría de IA en vivo. Verifica los detalles antes de actuar.',
+    resultKicker:'UN PUNTO DE PARTIDA PRÁCTICO', resultTitle:'Tus primeros pasos', copy:'Copiar plan', download:'Guardar como texto', startOver:'Empezar de nuevo', resultDisclaimer:'Esta es una plantilla de planificación guiada. Verifica los detalles antes de actuar.',
     roadmapEyebrow:'05 / EL CAMINO POR DELANTE', roadmapTitle:'La visión es grande.<br><em>El siguiente paso es real.</em>', roadmapText:'La meta no es anunciar que ya terminamos. Es mostrar el trabajo, probarlo con personas reales y mejorar con responsabilidad.', statusNow:'EN PROGRESO', road1:'Escuchar y aprender', road1desc:'Hablar con vecinos, educadores, pequeños negocios y personas que están reconstruyendo su camino.', statusNext:'SIGUIENTE', road2:'Probar proyectos piloto', road2desc:'Validar servicios digitales útiles y sesiones de aprendizaje práctico con aliados.', statusFuture:'META FUTURA', road3:'Hacer crecer la red', road3desc:'Desarrollar un lugar confiable para conectar habilidades, personas, negocios y oportunidades.',
-    finalEyebrow:'DE UN BARRIO A TODO LO POSIBLE', finalTitle:'Cuando nuestro barrio crece,<br><em>todos avanzamos.</em>', finalText:'Creado en Dallas. Centrado en las personas. Impulsado por la convicción de que el mejor futuro lo construimos juntos.', finalButton:'Da tu primer paso', finalConnect:'Conecta con el fundador', footerLine:'Creado por Our Block Digital · Dallas, Texas<br>Las personas primero. La comunidad primero.', footerDisclaimer:'© 2026 joinprojectsol.org, vista previa del concepto. No se presenta como una organización sin fines de lucro ni una red social operativa.'
+    finalEyebrow:'DE UN BARRIO A TODO LO POSIBLE', finalTitle:'Cuando nuestro barrio crece,<br><em>todos avanzamos.</em>', finalText:'Creado en Dallas. Centrado en las personas. Impulsado por la convicción de que el mejor futuro lo construimos juntos.', finalButton:'Da tu primer paso', finalConnect:'Conecta con el fundador', footerLine:'Creado por Our Block Digital · Dallas, Texas<br>Las personas primero. Enfoque comunitario.', footerDisclaimer:'© 2026 joinprojectsol.org, vista previa del concepto. No se presenta como una organización sin fines de lucro ni una red social operativa.'
   };
   const descriptions = {
     en: {people:'People helping people—that’s where the network begins.', mentors:'Mentors share experience and open doors.', business:'Local businesses help neighborhoods thrive.', opportunity:'A connection can become a new opportunity.', skills:'Practical skills help people build their futures.', second:'Everyone deserves a meaningful second chance.'},
@@ -108,7 +108,7 @@
       language === 'es' ? 'Tus primeros pasos' : 'Your first steps',
       $('#result-summary').textContent,
       ...[...$('#result-steps').querySelectorAll('li')].map((li, index) => String(index + 1) + '. ' + li.textContent),
-      language === 'es' ? 'Plantilla local, no asesoría de IA en vivo.' : 'Local template, not live AI advice.'
+      language === 'es' ? 'Plantilla local y orientativa.' : 'Local, self-guided template.'
     ].join('\n\n');
   }
   langButton.addEventListener('click', () => setLanguage(language === 'en' ? 'es' : 'en'));

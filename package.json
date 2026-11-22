@@ -1,12 +1,12 @@
 {
-  "name": "project-sol-live-ai",
-  "version": "0.2.0-alpha.2",
+  "name": "joinprojectsol-community-website",
+  "version": "0.3.0-preview.1",
   "private": true,
   "type": "module",
-  "description": "joinprojectsol.org website and optional server-side AI prototype.",
+  "description": "Bilingual Dallas-first community concept website, served statically with GitHub Pages.",
   "scripts": {
-    "check": "python3 check_site.py && node --check app.js && node --check chat.mjs && node --check service-worker.js",
-    "test": "npm run check && node --test api.test.mjs homepage.test.mjs"
+    "check": "python3 check_site.py && node --check app.js && node --check service-worker.js",
+    "test": "npm run check && node --test homepage.test.mjs retired-chat.test.mjs"
   },
   "engines": {
     "node": ">=20"
