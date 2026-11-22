@@ -6,7 +6,7 @@
   "description": "joinprojectsol.org website and optional server-side AI prototype.",
   "scripts": {
     "check": "python3 check_site.py && node --check app.js && node --check chat.mjs && node --check service-worker.js",
-    "test": "npm run check && node --test api.test.mjs"
+    "test": "npm run check && node --test api.test.mjs homepage.test.mjs"
   },
   "engines": {
     "node": ">=20"
