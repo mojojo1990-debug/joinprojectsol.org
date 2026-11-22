@@ -5,6 +5,7 @@
 - Removed the live AI chat backend and its mocked API tests.
 - Removed the obsolete browser chat client, Vercel one-click AI launcher, and chat deployment configuration.
 - Kept the working bilingual website, community concept map, and device-local First-Step Studio.
+- Reinforced the guiding message: **Human First. Community Focused.**
 - Removed active AI-service references from the user-facing planning template and documentation.
 - Added regression checks guarding against accidental reintroduction of chatbot code.
 - Updated product documentation for a static GitHub Pages community concept preview.
