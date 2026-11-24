@@ -1,7 +1,8 @@
-const CACHE_NAME = 'joinprojectsol-community-preview-v4';
+const CACHE_NAME = 'joinprojectsol-community-preview-v5';
 const APP_SHELL = [
   './', './index.html', './offline.html', './404.html',
   './styles.css', './app.js', './manifest.webmanifest',
+  './mission-consult.webp', './mission-robot.webp',
   './icon-192.png', './icon-512.png', './favicon.svg', './social-card.png'
 ];
 
