@@ -3,6 +3,8 @@
   const $ = s => document.querySelector(s);
   const $$ = s => [...document.querySelectorAll(s)];
   const spanish = {
+    obdArtCaption: '<strong>Arte conceptual</strong> · Ilustración de un espacio de asesoría para el vecindario, no de un local existente.',
+    missionArtCaption: '<strong>Arte conceptual</strong> · Ilustración del aprendizaje práctico, no de un centro ni de un programa en funcionamiento.',
     headerTagline:'LAS PERSONAS PRIMERO. ENFOQUE COMUNITARIO.', skip:'Ir al contenido', ann:'UNA IDEA NACIDA EN DALLAS. UN FUTURO IMPULSADO POR LA COMUNIDAD.', stage:'AVANCE PÚBLICO DEL CONCEPTO',
     navVision:'La visión', navPaths:'Nuestros caminos', navGarden:'La red', navStudio:'Empieza aquí', headerCta:'Encuentra tu primer paso',
     heroEyebrow:'EL PRÓXIMO CAPÍTULO COMIENZA CON NOSOTROS', heroLine1:'Un futuro', heroLine2:'mejor', heroLine3:'comienza aquí.',
@@ -81,6 +83,10 @@
   function setLanguage(lang) {
     language = lang;
     document.documentElement.lang = lang;
+    const businessArt = $('#obd-art-image');
+    const missionArt = $('#mission-art-image');
+    if (businessArt) businessArt.alt = lang === 'es' ? 'Ilustración de asientos y una mesa para asesorías a pequeños negocios.' : 'Illustration of seating and a table for small-business consultations.';
+    if (missionArt) missionArt.alt = lang === 'es' ? 'Ilustración de un robot pequeño con ruedas sobre una mesa de trabajo.' : 'Illustration of a small wheeled robot on a workbench.';
     for (const node of nodes) {
       const translated = spanish[node.dataset.i18n];
       node.innerHTML = lang === 'es' && translated !== undefined ? translated : english.get(node);
