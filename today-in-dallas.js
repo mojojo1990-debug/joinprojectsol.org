@@ -1,0 +1,24 @@
+(() => {
+"use strict";
+const $=s=>document.querySelector(s);
+const dictionary={
+en:{intro:"Find food assistance, free resources, community events, job fairs and ways to lend a hand. Dallas and Oak Cliff first, with opportunities across DFW.",tabs:["Today","Tomorrow","This week","Upcoming"],update:"Last reviewed",missing:"No verified listings for this period yet. Check back after the daily review.",disclaimer:"Community schedules may change. Always confirm with the organizer before traveling. Project SOL does not operate these events or guarantee availability.",back:"← Project SOL Home",foot:"← Return to Project SOL",source:"Official event information",organizer:"Organizer",eligibility:"Details",status:"Verified information is being prepared.",error:"Community updates are temporarily unavailable. Please try again later.",tz:"America/Chicago"},
+es:{intro:"Encuentra ayuda alimentaria, recursos gratuitos, eventos comunitarios, ferias de empleo y oportunidades de voluntariado. Primero Dallas y Oak Cliff, además de otras zonas de DFW.",tabs:["Hoy","Mañana","Esta semana","Próximamente"],update:"Última revisión",missing:"Todavía no hay anuncios verificados para este período. Vuelve después de la revisión diaria.",disclaimer:"Los horarios pueden cambiar. Confirma con el organizador antes de salir. Project SOL no organiza estos eventos ni garantiza disponibilidad.",back:"← Inicio de Project SOL",foot:"← Volver a Project SOL",source:"Información oficial del evento",organizer:"Organizador",eligibility:"Detalles",status:"Se están preparando anuncios verificados.",error:"Las novedades comunitarias no están disponibles temporalmente. Inténtalo más tarde.",tz:"America/Chicago"}};
+let language="en",filter="today",feed={verified_at:null,events:[]};
+const dateAtDallas=(date=new Date())=>new Intl.DateTimeFormat("en-CA",{timeZone:"America/Chicago",year:"numeric",month:"2-digit",day:"2-digit"}).format(date);
+const dayDelta=(iso)=>{const a=new Date(dateAtDallas()+"T12:00:00Z"),b=new Date(iso+"T12:00:00Z");return Math.round((b-a)/86400000);};
+const cleanUrl=u=>{try{const x=new URL(u);return ["http:","https:"].includes(x.protocol)?x.href:null}catch{return null}};
+const text=(el,value)=>el.textContent=value||"";
+const localDate=iso=>new Intl.DateTimeFormat(language==="es"?"es-US":"en-US",{dateStyle:"full",timeZone:"UTC"}).format(new Date(iso+"T12:00:00Z"));
+function render(){
+const t=dictionary[language];document.documentElement.lang=language;text($("#intro"),t.intro);text($("#disclaimer"),t.disclaimer);text($("#back"),t.back);text($("#foot-link"),t.foot);text($("#language"),language==="en"?"ES":"EN");
+document.querySelectorAll("[data-filter]").forEach((b,i)=>{text(b,t.tabs[i]);b.setAttribute("aria-pressed",String(b.dataset.filter===filter))});
+text($("#update"),feed.verified_at?t.update+": "+new Intl.DateTimeFormat(language==="es"?"es-US":"en-US",{dateStyle:"medium",timeStyle:"short",timeZone:"America/Chicago"}).format(new Date(feed.verified_at))+" CT":t.status);
+const list=$("#items");list.replaceChildren();
+const items=(Array.isArray(feed.events)?feed.events:[]).filter(e=>e&&/^\\d{4}-\\d{2}-\\d{2}$/.test(e.date||"")&&e.verified===true&&cleanUrl(e.source_url)).filter(e=>{const d=dayDelta(e.date);return d>=0&&(filter==="today"?d===0:filter==="tomorrow"?d===1:filter==="week"?d<=6:true)}).sort((a,b)=>a.date.localeCompare(b.date));
+if(!items.length){const p=document.createElement("p");p.className="board-empty";text(p,t.missing);list.append(p);return;}
+for(const e of items){const a=document.createElement("article");a.className="board-item";const c=document.createElement("div");c.className="category";text(c,language==="es"?(e.category_es||e.category):(e.category||"Community"));const h=document.createElement("h2");text(h,language==="es"?(e.title_es||e.title):e.title);const when=document.createElement("p");text(when,localDate(e.date)+(e.time_local?" · "+e.time_local+" CT":""));const where=document.createElement("p");text(where,e.address);const org=document.createElement("p");text(org,t.organizer+": "+e.organizer);const note=document.createElement("p");text(note,(language==="es"?e.details_es:e.details)||e.details);const link=document.createElement("a");link.href=cleanUrl(e.source_url);link.rel="noopener noreferrer";link.target="_blank";text(link,t.source+" ↗");a.append(c,h,when,where,org,note,link);list.append(a)}
+}
+document.querySelectorAll("[data-filter]").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.filter;render()}));$("#language").addEventListener("click",()=>{language=language==="en"?"es":"en";render()});
+fetch("community-events.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("feed");return r.json()}).then(x=>{if(x&&Array.isArray(x.events))feed=x;render()}).catch(()=>{feed={events:[],verified_at:null};render()});render();
+})();
